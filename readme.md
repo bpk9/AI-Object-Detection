@@ -31,6 +31,31 @@ ai-object-detection/
 └── predict.py         # Prediction script
 ```
 
+## Dataset Generation
+
+This project uses [Roboflow](https://roboflow.com/) for dataset preparation and annotation. To create your own dataset:
+
+1. Create a free account on [Roboflow](https://roboflow.com/)
+
+2. Create a new project:
+   - Select "Object Detection" as the project type
+   - Choose "YOLOv8" as the annotation format
+
+3. Upload and annotate your images:
+   - Upload your images to Roboflow
+   - Use Roboflow's annotation tools to draw bounding boxes around objects
+   - Label each object with the appropriate class name
+
+4. Generate and export your dataset:
+   - Add preprocessing steps if needed (resize, auto-orient, etc.)
+   - Add augmentations to increase dataset size (optional)
+   - Split your dataset (recommended: 70% train, 20% valid, 10% test)
+   - Export in YOLOv8 format
+   - Copy the exported dataset into your `datasets/` directory
+   - Update the path to your dataset in [train.py](./train.py)
+
+For more information on dataset preparation, visit [Roboflow's YOLOv8 Guide](https://docs.roboflow.com/export-format/yolov8).
+
 ## Training
 
 The project uses [YOLOv8](https://yolov8.com/) as the base model for training. 
@@ -38,12 +63,13 @@ The project uses [YOLOv8](https://yolov8.com/) as the base model for training.
 To train on your custom dataset:
 
 1. Organize your dataset in the following structure:
-   - `train/images/`: Training images (60%)
-   - `valid/images/`: Validation images (20%)
-   - `test/images/`: Test images (20%)
-   - Update `data.yaml` with your class names
+   - `datasets/<your-dataset-name>/train/images/`: Training images (60%)
+   - `datasets/<your-dataset-name>/valid/images/`: Validation images (20%)
+   - `datasets/<your-dataset-name>/test/images/`: Test images (20%)
 
-2. Run the training script:
+2. Update the `data_path` variable in [train.py](./train.py)
+
+3. Run the training script:
 ```bash
 python train.py
 ```
