@@ -1,0 +1,16 @@
+# MacOS
+.DS_Store
+
+# Predictions / Trainings
+runs
+
+# Pytorch Models
+*.pt
+
+# Test Data
+test
+
+# Training Data
+datasets/*/test
+datasets/*/train
+datasets/*/valid

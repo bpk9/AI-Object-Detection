@@ -1,0 +1,9 @@
+# This is an example dataset config
+# To generate your own dataset, use https://roboflow.com/
+
+train: ./train/images
+val: ./valid/images
+test: ./test/images
+
+nc: 1
+names: ['brian']
