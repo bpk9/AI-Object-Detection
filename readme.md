@@ -2,7 +2,7 @@
 
 This project uses [YOLOv8](https://yolov8.com/) for custom object detection. It's set up to train on custom datasets and perform predictions on images and videos.
 
-## Additional Documentation
+**NOTE:** To protect the privacy of the data, the trained model weights as well as the training data is intentionally excluded from this repository.
 
 ## Setup
 
